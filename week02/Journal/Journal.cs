@@ -1,20 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
 
-
-public void LoadFromFile(string file)
+public class Journal
 {
-    _entries.Clear();
+    public List<Entry> _entries = new List<Entry>();
 
-    string[] lines = System.IO.File.ReadAllLines(file);
-
-    foreach (string line in lines)
+    public void AddEntry(Entry newEntry)
     {
-        string[] parts = line.Split(",");
-        Entry loadedEntry = new Entry();
-        loadedEntry._date = parts[0];
-        loadedEntry._promptText = parts[1];
-        loadedEntry._entryText = parts[2];
-
-        _entries.Add(loadedEntry);
+        _entries.Add(newEntry);
     }
-    Console.WriteLine("Journal loaded from file.");
+
+    public void DisplayAll()
+    {
+        foreach (Entry entry in _entries)
+        {
+            entry.Display();
+        }
+    }
+
+    public void SaveToFile(string file)
+    {
+        using (StreamWriter outputFile = new StreamWriter(file))
+        {
+            foreach (Entry entry in _entries)
+            {
+                outputFile.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}");
+            }
+        }
+        Console.WriteLine("Journal saved to file.");
+    }
+
+    public void LoadFromFile(string file)
+    {
+        _entries.Clear();
+        string[] lines = File.ReadAllLines(file);
+
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split("|");
+            Entry loadedEntry = new Entry();
+            loadedEntry._date = parts[0];
+            loadedEntry._promptText = parts[1];
+            loadedEntry._entryText = parts[2];
+            _entries.Add(loadedEntry);
+        }
+        Console.WriteLine("Journal loaded from file.");
+    }
 }
