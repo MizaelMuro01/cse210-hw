@@ -15,7 +15,7 @@ class Program
         
         Comment comment1 = new Comment();
         comment1._name = "Alice";
-        comment1._text = "Great tutorial!";
+        comment1._text = "Great tutorial";
         video1._comments.Add(comment1);
         
         Comment comment2 = new Comment();
@@ -28,19 +28,19 @@ class Program
         // V2
         Video video2 = new Video();
         video2._title = "Learning Programming";
-        video2._author = "Jane Smith";
+        video2._author = "Jaden Smith";
         video2._length = 300;
         
         Comment comment3 = new Comment();
         comment3._name = "Charlie";
-        comment3._text = "I learned a lot";
+        comment3._text = "learned a lot, thanks";
         video2._comments.Add(comment3);
         
         videos.Add(video2);
 
         // V3
         Video video3 = new Video();
-        video3._title = "Book of Mormon Study";
+        video3._title = "BOM Study";
         video3._author = "Elder Johnson";
         video3._length = 900;
         
@@ -51,7 +51,7 @@ class Program
         
         Comment comment5 = new Comment();
         comment5._name = "Michael";
-        comment5._text = "Thank you for this";
+        comment5._text = "Thank you for this bro";
         video3._comments.Add(comment5);
         
         videos.Add(video3);
