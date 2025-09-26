@@ -1,12 +1,10 @@
-using System;
-
 public class Comment
 {
-    public string _name;
-    public string _text;
+    public string name;
+    public string text;
 
-    public void DisplayComment()
+    public void ShowComment()
     {
-        Console.WriteLine($"- {_name}: {_text}");
+        Console.WriteLine("- " + name + ": " + text);
     }
 }

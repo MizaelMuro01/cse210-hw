@@ -7,59 +7,59 @@ class Program
     {
         List<Video> videos = new List<Video>();
 
-        // V1
-        Video video1 = new Video();
-        video1._title = "C# Tutorial";
-        video1._author = "John Doe";
-        video1._length = 600;
+        // Video 1
+        Video v1 = new Video();
+        v1.title = "C# Tutorial";
+        v1.author = "John Doe";
+        v1.length = 600;
         
-        Comment comment1 = new Comment();
-        comment1._name = "Alice";
-        comment1._text = "Great tutorial";
-        video1._comments.Add(comment1);
+        Comment c1 = new Comment();
+        c1.name = "Alice";
+        c1.text = "Great tutorial!";
+        v1.comments.Add(c1);
         
-        Comment comment2 = new Comment();
-        comment2._name = "Bob";
-        comment2._text = "Very helpful";
-        video1._comments.Add(comment2);
+        Comment c2 = new Comment();
+        c2.name = "Bob";
+        c2.text = "Very helpful";
+        v1.comments.Add(c2);
         
-        videos.Add(video1);
+        videos.Add(v1);
 
-        // V2
-        Video video2 = new Video();
-        video2._title = "Learning Programming";
-        video2._author = "Jaden Smith";
-        video2._length = 300;
+        // Video 2
+        Video v2 = new Video();
+        v2.title = "Learning Programming";
+        v2.author = "Jane Smith";
+        v2.length = 300;
         
-        Comment comment3 = new Comment();
-        comment3._name = "Charlie";
-        comment3._text = "learned a lot, thanks";
-        video2._comments.Add(comment3);
+        Comment c3 = new Comment();
+        c3.name = "Charlie";
+        c3.text = "I learned a lot";
+        v2.comments.Add(c3);
         
-        videos.Add(video2);
+        videos.Add(v2);
 
-        // V3
-        Video video3 = new Video();
-        video3._title = "BOM Study";
-        video3._author = "Elder Johnson";
-        video3._length = 900;
+        // Video 3
+        Video v3 = new Video();
+        v3.title = "Book of Mormon Study";
+        v3.author = "Elder Johnson";
+        v3.length = 900;
         
-        Comment comment4 = new Comment();
-        comment4._name = "Sarah";
-        comment4._text = "Inspiring message";
-        video3._comments.Add(comment4);
+        Comment c4 = new Comment();
+        c4.name = "Sarah";
+        c4.text = "Inspiring message";
+        v3.comments.Add(c4);
         
-        Comment comment5 = new Comment();
-        comment5._name = "Michael";
-        comment5._text = "Thank you for this bro";
-        video3._comments.Add(comment5);
+        Comment c5 = new Comment();
+        c5.name = "Michael";
+        c5.text = "Thank you for this";
+        v3.comments.Add(c5);
         
-        videos.Add(video3);
+        videos.Add(v3);
 
-        //all videos
-        foreach (Video video in videos)
+        // Show all videos
+        foreach (Video v in videos)
         {
-            video.DisplayVideoInfo();
+            v.ShowVideo();
         }
     }
 }
