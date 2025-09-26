@@ -2,52 +2,37 @@ using System.Collections.Generic;
 
 public class Order
 {
-    private List<Product> _products;
-    private Customer _customer;
+    public List<Product> products = new List<Product>();
+    public Customer customer;
 
-    public Order(Customer customer)
-    {
-        _customer = customer;
-        _products = new List<Product>();
-    }
-
-    public void AddProduct(Product product)
-    {
-        _products.Add(product);
-    }
-
-    public double CalculateTotal()
+    public double GetTotal()
     {
         double total = 0;
-        foreach (Product product in _products)
+        foreach (Product p in products)
         {
-            total += product.GetTotalCost();
+            total += p.GetCost();
         }
 
-        if (_customer.IsInUSA())
-        {
+        if (customer.InUSA())
             total += 5;
-        }
         else
-        {
             total += 35;
-        }
 
         return total;
     }
 
-    public string GetPackingLabel()
+    public string GetPacking()
     {
-        string label = "PACKING LABEL:\n";
-        foreach (Product product in _products)
+        string label = "";
+        foreach (Product p in products)
         {
-            label += $"{product.GetName()} (ID: {product.GetProductId()})\n";
+            label += p.name + " (" + p.id + ")\n";
         }
         return label;
     }
 
-    public string GetShippingLabel()
+    public string GetShipping()
     {
-        return $"SHIPPING LABEL:\n{_customer.GetName()}\n{_customer.GetAddress().GetFullAddress()}";
+        return customer.name + "\n" + customer.address.GetAddress();
     }
 }

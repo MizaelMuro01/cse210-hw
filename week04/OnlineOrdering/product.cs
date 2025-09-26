@@ -1,30 +1,12 @@
 public class Product
 {
-    private string _name;
-    private string _productId;
-    private double _price;
-    private int _quantity;
+    public string name;
+    public string id;
+    public double price;
+    public int quantity;
 
-    public Product(string name, string productId, double price, int quantity)
+    public double GetCost()
     {
-        _name = name;
-        _productId = productId;
-        _price = price;
-        _quantity = quantity;
-    }
-
-    public double GetTotalCost()
-    {
-        return _price * _quantity;
-    }
-
-    public string GetName()
-    {
-        return _name;
-    }
-
-    public string GetProductId()
-    {
-        return _productId;
+        return price * quantity;
     }
 }
